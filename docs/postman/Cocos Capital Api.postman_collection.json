@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "a6d204c3-9973-4d92-b685-43a5758a47cc",
+		"name": "Cocos Capital Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43585459",
+		"_collection_link": "https://cucchi.postman.co/workspace/Cucchi's-Workspace~a544a916-f6e2-4140-84bd-9284d0595f65/collection/43585459-a6d204c3-9973-4d92-b685-43a5758a47cc?action=share&source=collection_link&creator=43585459"
+	},
+	"item": [
+		{
+			"name": "Search assets in the market",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/api/v1/broker/assets/search",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"broker",
+						"assets",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ticker",
+							"value": "",
+							"description": "The ticker symbol of the asset",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "",
+							"description": "The name of the asset",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "",
+							"description": "Page number",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "",
+							"description": "Results per page",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the portfolio of a user by their account number",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/api/v1/broker/portfolio/10001",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"broker",
+						"portfolio",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all transactions by account number",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}} /api/v1/broker/transactions/account/10001?limit=100",
+					"host": [
+						"{{BaseUrl}} "
+					],
+					"path": [
+						"api",
+						"v1",
+						"broker",
+						"transactions",
+						"account",
+						"10001"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2",
+							"description": "Page number",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"description": "Results per page"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new transaction - BUY - LIMIT",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumber\": \"10001\",\r\n    \"ticker\": \"BMA\",\r\n    \"orderType\": \"LIMIT\",\r\n    \"quantity\": 1,\r\n    \"price\": 1,\r\n    \"side\": \"BUY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/v1/broker/transactions",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"broker",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new transaction - BUY - MARKET",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumber\": \"10001\",\r\n    \"ticker\": \"BMA\",\r\n    \"orderType\": \"MARKET\",\r\n    \"totalAmount\": 10000,\r\n    \"side\": \"BUY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/v1/broker/transactions",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"broker",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new transaction - SELL - LIMIT",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumber\": \"10001\",\r\n    \"ticker\": \"BMA\",\r\n    \"orderType\": \"LIMIT\",\r\n    \"quantity\": 1,\r\n    \"price\": 1,\r\n    \"side\": \"SELL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/v1/broker/transactions",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"broker",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new transaction - SELL - MARKET",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumber\": \"10001\",\r\n    \"ticker\": \"BMA\",\r\n    \"orderType\": \"MARKET\",\r\n    \"quantity\": 1,\r\n    \"price\": 1,\r\n    \"side\": \"SELL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/v1/broker/transactions",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"broker",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel a transaction by ID",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumber\": \"10001\",\r\n    \"secondaryAction\": \"CANCEL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/v1/broker/transactions/cancel/5",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"broker",
+						"transactions",
+						"cancel",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

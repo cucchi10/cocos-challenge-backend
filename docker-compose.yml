@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  postgre:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/cocos-capital/data
+      - ./backup:/backup
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=S3cR3T
+      - POSTGRES_DB=cocos-capital
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    ports:
+      - "8080:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=test@example.com
+      - PGADMIN_DEFAULT_PASSWORD=123456
+    volumes:
+      - ./backup:/backup
+    depends_on:
+      - postgre

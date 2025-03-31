@@ -1,0 +1,25 @@
+{
+    "parser": "typescript",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": true,
+    "printWidth": 150,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "overrides": [
+        {
+            "files": [".*", "*.json"],
+            "options": {
+                "parser": "json"
+            }
+        },
+        {
+            "files": ["*.js"],
+            "options": {
+                "parser": "typescript"
+            }
+        }
+    ]
+}
